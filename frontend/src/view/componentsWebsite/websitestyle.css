@@ -1,0 +1,303 @@
+.font-11 {
+  font-size: 11px;
+}
+
+/*------------ DARK-LIGHT-MODE SECTION STARTS ------------*/
+.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+.dark-mode .navbar_style, .dark-mode .footer_style {
+  background-color: #1e232e !important;
+}
+
+.navbar-blur {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.65);
+  transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+}
+
+[data-bs-theme="dark"] .navbar-blur {
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+.dark-mode a {
+  color: #f8f9fa !important;
+}
+
+.dark-mode .nav-link.active {
+  color: #0d6efd !important;
+}
+
+.navbar .nav-link:hover {
+  color: #66a3ff !important;
+}
+
+.dark-mode .btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.dark-mode .btn-outline-secondary {
+  border-color: #f8f9fa;
+  color: #f8f9fa;
+}
+/*------------ DARK-LIGHT-MODE SECTION ENDS ------------*/
+
+/*------------ BREAD-CRUMB CARD SECTION STARTS ------------ */
+.breadcrumb_card {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url("./technology-background_1302-15072.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 70px 0;
+}
+/*------------ BREAD-CRUMB CARD SECTION ENDS ------------ */
+
+/*------------ HEADER SECTION STARTS ------------ */
+.company-logo {
+  width: 13%;
+}
+/*------------ HEADER SECTION ENDS ------------ */
+
+/* ----------- HOME SECTION STARTS ------------*/
+.hero-section {
+  padding-top: 140px !important;
+  padding-bottom: 150px !important;
+}
+
+.hero-svg-top {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.hero-svg-bottom {
+  position: absolute;
+  bottom: 0;
+  left: -47px;
+  z-index: -1;
+}
+
+@media (min-width: 992px) {
+  .hero-section {
+    padding-top: 180px !important;
+    padding-bottom: 200px !important;
+  }
+}
+/*----------- HOME SECTION ENDS ------------*/
+
+
+/*------------ FOOTER SECTION STARTS ------------ */
+.hover-link:hover {
+  color: #4f46e5;
+}
+.hover-icon:hover {
+  color: #4f46e5 !important;
+  cursor: pointer;
+}
+/*------------ FOOTER SECTION ENDS ------------ */
+
+/*------------ ABOUT SECTION STARTS ------------ */
+.about-details__content-text1 {
+  position: relative;
+  display: block;
+}
+
+.sec-title__tagline {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+  .sec-title__tagline .left-line {
+    position: relative;
+    display: block;
+    width: 65px;
+    height: 3px;
+    background: #0d6efd;
+    margin-right: 11px;
+  }
+    .sec-title__tagline .left-line::before {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+      right: 0px;
+      width: 10px;
+      height: 10px;
+      background: #0d6efd;
+      content: "";
+    }
+
+.teams-area {
+  padding-bottom: 100px;
+  padding-top: 100px;
+}
+.team-title > span {
+  color: #999999;
+  font-size: 12px;
+}
+.team-title {
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  padding-top: 20px;
+  z-index: 9;
+  position: relative;
+}
+.team-text {
+  text-align: center;
+}
+.single-team-item:hover .team-title {
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 28%;
+}
+.single-team-item {
+  overflow: hidden;
+  position: relative;
+}
+.single-team-item:after {
+  background: #ededed none repeat scroll 0 0;
+  bottom: 0;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  z-index: 9;
+}
+.single-team-item:hover:after {
+  background: #d5d5d5 none repeat scroll 0 0;
+}
+.single-team-item:hover .team-title h6, .single-team-item:hover .team-title span, .single-team-item:hover .follow-links a {
+  color: #ffffff;
+}
+.team-text > p {
+  bottom: 25px;
+  font-size: 13px;
+  left: 0;
+  line-height: 16px;
+  margin-bottom: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  position: absolute;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.single-team-item:hover .team-text > p {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  padding-top: 22px;
+}
+.team-text {
+  height: 80px;
+}
+.volunter-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.follow-links a {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  height: 29px;
+  text-align: center;
+  width: 50px;
+}
+.follow-links {
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 88%;
+  -webkit-transition: all 300ms ease 0s;
+  transition: all 300ms ease 0s;
+  z-index: 9;
+}
+.single-team-item:hover .follow-links {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  top: 84%;
+}
+
+.overlay-effect a {
+  display: block;
+  position: relative;
+}
+.overlay-effect > a:before {
+  background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+  content: "";
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  position: absolute;
+  top: 0;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  width: 100%;
+  z-index: 1;
+}
+.overlay-hover:hover .overlay-effect > a:before {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+/*------------ ABOUT SECTION ENDS ------------ */
+
+/*------------ CAREERS SECTION STARTS ------------ */
+.job-card {
+  /* width: 100%; */
+  /* max-width: 650px; */
+  /* background: #fff; */
+  /* padding: 18px 22px; */
+  /* border-radius: 14px; */
+  /* box-shadow: 0 1px 4px rgba(0,0,0,0.08); */
+  border: 1px solid #e6e6e6;
+}
+
+.job-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.job-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.job-tag {
+  display: inline-block;
+  /* background: #f1f3f9; */
+  padding: 3px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  margin-top: 4px;
+}
+
+.job-desc {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.job-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+}
+
+.job-footer {
+  display: flex;
+  margin-top: 16px;
+  font-size: 15px;
+}
+
+/* ------------ CAREERS SECTION ENDS ------------ */
