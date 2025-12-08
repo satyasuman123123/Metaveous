@@ -88,8 +88,8 @@ const Sidebar = () => {
               <strong>{userName}</strong>
             </NavLink>
             <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-              <li><NavLink className="dropdown-item" to="/profile">Profile</NavLink></li>
-              <li><hr className="dropdown-divider" /></li>
+              {/* <li><NavLink className="dropdown-item" to="/profile">Profile</NavLink></li>
+              <li><hr className="dropdown-divider" /></li> */}
               <li><button className="dropdown-item" onClick={handleLogout}>Sign out</button></li>
             </ul>
           </div>
@@ -110,8 +110,8 @@ const Sidebar = () => {
                   <strong>{userName}</strong>
                 </NavLink>
                 <ul className="dropdown-menu dropdown-menu-end text-small shadow" aria-labelledby="dropdownUser2">
-                  <li><NavLink className="dropdown-item" to="/profile">Profile</NavLink></li>
-                  <li><hr className="dropdown-divider" /></li>
+                  {/* <li><NavLink className="dropdown-item" to="/profile">Profile</NavLink></li>
+                  <li><hr className="dropdown-divider" /></li> */}
                   <li><button className="dropdown-item" onClick={handleLogout}>Sign out</button></li>
                 </ul>
               </div>
