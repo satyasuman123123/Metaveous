@@ -1,4 +1,4 @@
-body{
+body {
   background-color: #f5f3f3;
 }
 
@@ -11,12 +11,11 @@ body{
   border: 2px solid #ddd;
 }
 
-
-/* SIDEBAR SECTION */
+/* --------------- SIDEBAR SECTION --------------- */
 .sidebar {
   min-width: 280px;
 }
-.offcanvas-backdrop.show{
+.offcanvas-backdrop.show {
   width: 100%;
   height: 100%;
 }
@@ -31,7 +30,6 @@ body{
 .sidebar_links a.active {
   color: #fff !important;
   background-color: #0d6efd;
-  /* border-radius: 5px; */
   font-weight: 700;
 }
 
@@ -46,22 +44,44 @@ body{
 }
 
 
-/* TABLEDATA COMPONENT SECTION */
-.table_style {
+/* --------------- TABLEDATA COMPONENT SECTION --------------- */
+.product-table {
   width: 100%;
-  background-color: #fff;
+  border-collapse: separate;
+  border-spacing: 0 12px;
 }
 
-.table_style td, .table_style th {
-  vertical-align: middle !important;
-  padding: 8px 10px !important;
+.product-table thead th {
+  background: #eef1f7;
+  padding: 14px 8px;
+  font-size: 13px;
+  border: 1px solid #d7dce5;
 }
 
-.table_style img {
+.product-table tbody tr {
+  background: white;
+}
+
+.product-table tbody td {
+  padding: 8px;
+  font-size: 13px;
+}
+
+.product-img {
   width: 70px;
   height: 70px;
   object-fit: cover;
+  border-radius: 6px;
 }
+
+.action_btn {
+  font-size: 20px;
+  color: #555;
+}
+  .action_btn:hover {
+    color: red;
+    transition: 0.2s;
+  }
 
 .tableRow_style {
   max-width: 400px;
@@ -82,14 +102,12 @@ body{
   text-overflow: ellipsis;
 }
 
-
 /* DASHBOARD SECTION */
 .card {
   min-height: 140px;
 }
 
-
-/* CREATE ACCOUNT SECTION */
+/* --------------- CREATE ACCOUNT SECTION --------------- */
 .switch {
   position: relative;
   display: inline-block;
@@ -136,15 +154,14 @@ input:checked + .slider:before {
   transform: translateX(22px);
 }
 
-
-/* ADMIN SIGNIN SECTION */
-.card_style{
+/* --------------- ADMIN SIGNIN SECTION --------------- */
+.card_style {
   width: 400px;
   border: none;
   border-radius: 10px;
 }
 
-.background_image{
+.background_image {
   background: url("../../signin.svg");
   background-position: center;
   background-size: cover;
