@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { FaSort, FaSortUp, FaSortDown } from 'react-icons/fa';
-import { AiFillEdit } from 'react-icons/ai';
-import { MdDeleteForever } from 'react-icons/md';
+// import { AiFillEdit } from 'react-icons/ai';
+import { MdDelete, MdEdit  } from 'react-icons/md';
 import { TbArrowBigLeftLineFilled, TbArrowBigRightLineFilled } from "react-icons/tb";
 
 export default function TableData({ data, columns, title = "Data Table", onEdit, onDelete, baseImagePath = "" }) {
@@ -9,7 +9,7 @@ export default function TableData({ data, columns, title = "Data Table", onEdit,
   const [currentPage, setCurrentPage] = useState(1);
   const [sortConfig, setSortConfig] = useState({ key: null, direction: null });
 
-  const itemsPerPage = 10;
+  const itemsPerPage = 5;
 
   // Filter the data
   const filteredData = useMemo(() => {
@@ -66,60 +66,72 @@ export default function TableData({ data, columns, title = "Data Table", onEdit,
 
       {/* Table */}
       <div className="table-responsive">
-        <table className="table table-bordered table_style">
-          <thead className="table-dark">
+        <table className="product-table">
+          <thead>
             <tr>
               <th>#</th>
+
               {columns.map(col => (
                 <th key={col.key} role="button" onClick={() => handleSort(col.key)}>
                   {col.label} {getSortIcon(col.key)}
                 </th>
               ))}
+
               {(onEdit || onDelete) && <th>Actions</th>}
               <th>Created Date</th>
             </tr>
           </thead>
+
           <tbody>
             {paginatedData.length === 0 ? (
-              <tr><td colSpan={columns.length + 3} className="text-center">No data found</td></tr>
+              <tr>
+                <td colSpan={columns.length + 3} className="text-center">No data found</td>
+              </tr>
             ) : (
               paginatedData.map((item, index) => (
                 <tr key={item.id || index}>
-                  <td>{(currentPage - 1) * itemsPerPage + index + 1}</td>
-                  {columns.map(col => (
-                    <td
-                      key={col.key}
-                      className={`text-center ${col.key === 'blog_content' || col.key === 'description' || col.key === 'job_description' ? 'tableRow_style' : ''} ${col.key === 'blog_title' || col.key === 'password' ? 'tableRow2_style' : ''}`} >
 
+                  {/* INDEXING */}
+                  <td>{(currentPage - 1) * itemsPerPage + index + 1}</td>
+
+                  {/* DYNAMIC COLUMNS */}
+                  {columns.map(col => (
+                    <td key={col.key} className={`${col.key === 'blog_content' || col.key === 'description' || col.key === 'job_description' ? 'tableRow_style' : ''} ${col.key === 'blog_title' || col.key === 'password' ? 'tableRow2_style' : ''}`}>
+
+                      {/* IMAGE COLUMN */}
                       {col.isImage ? (
-                        <img src={`http://localhost:3000/uploads/${baseImagePath}${item[col.key]}`} alt="profile-img" className='rounded-2'/>
-                      ) : col.key === 'status' ? (
-                        <span className={`badge rounded-pill ${item.status ? 'bg-success' : 'bg-danger'}`}>
-                          {item.status ? 'Active' : 'Inactive'}
+                        <img src={`http://localhost:3000/uploads/${baseImagePath}${item[col.key]}`} alt="img" className="product-img" />
+                      ) : col.key === "status" ? (
+                        <span className={`badge rounded-pill ${item.status ? "bg-success" : "bg-danger"}`}>
+                          {item.status ? "Active" : "Inactive"}
                         </span>
                       ) : (
                         item[col.key]
                       )}
                     </td>
-
                   ))}
+
+                  {/* ACTION BUTTONS */}
                   {(onEdit || onDelete) && (
                     <td>
-                      {onEdit && (<button className="btn btn-warning btn-sm me-2 mb-2" onClick={() => onEdit(item)}> <AiFillEdit size={21} /> </button>)}
-                      {onDelete && (<button className="btn btn-danger btn-sm mb-2" onClick={() => onDelete(item)}> <MdDeleteForever size={21} /> </button>)}
+                      {onEdit && (
+                        <button className="btn border-0 action_btn" onClick={() => onEdit(item)}> <MdEdit  /> </button>
+                      )}
+                      {onDelete && (
+                        <button className="btn border-0 action_btn" onClick={() => onDelete(item)}> <MdDelete /></button>
+                      )}
                     </td>
                   )}
-                  {/* <td>{new Date(item.createdAt).toLocaleDateString()}</td>
-                  <td>{new Date(item.createdAt).toLocaleDateString().replace(/\//g, '-')}</td>
-                  <td>{new Date(item.createdAt).toLocaleDateString("en-GB")}</td> */}
-                  <td>{new Date(item.createdAt).toLocaleDateString("en-GB").replace(/\//g, "-")}</td>
 
+                  {/* CREATED DATE */}
+                  <td>{new Date(item.createdAt).toLocaleDateString("en-GB").replace(/\//g, "-")}</td>
                 </tr>
               ))
             )}
           </tbody>
         </table>
       </div>
+
       {/* Pagination */}
       <div className="d-block d-lg-flex justify-content-center">
         <button className="btn btn-outline-primary me-2" onClick={() => setCurrentPage(p => Math.max(p - 1, 1))} disabled={currentPage === 1}>

@@ -8,11 +8,11 @@ import { FaMobileAlt, FaLockOpen, FaCamera } from "react-icons/fa";
 import { MdOutlineEmail, MdOutlinePersonAddAlt1 } from "react-icons/md";
 
 const userColumns = [
-  { key: 'fullname', label: 'Full Name' },
-  { key: 'phoneno', label: 'Mobile Number' },
+  { key: 'fullname', label: 'Name' },
+  { key: 'phoneno', label: 'Mobile' },
   { key: 'email', label: 'Email Address' },
   { key: 'password', label: 'Password' },
-  { key: 'profile', label: 'Profile Image', isImage: true },
+  { key: 'profile', label: 'Profile', isImage: true },
   { key: 'status', label: 'Status' },
 ];
 
