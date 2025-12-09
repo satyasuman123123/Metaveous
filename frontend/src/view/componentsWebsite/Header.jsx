@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { DarkLightMode, useTheme } from "./DarkLightMode";
-import Common from "./Common";
 
 // ICONS
 import { CiMenuBurger } from "react-icons/ci";
