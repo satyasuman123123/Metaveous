@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import TableData from '../TableData';
+import { useTheme } from '../DarkLightMode';
 
 // ICONS
 import { IoLocationOutline } from 'react-icons/io5';
@@ -27,6 +28,7 @@ export default function Careers() {
   });
   const [careerList, setCareerList] = useState([]);
   const [editId, setEditId] = useState(null);
+  const { darkMode } = useTheme();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -111,7 +113,7 @@ export default function Careers() {
   return (
     <>
       {/* FORM */}
-      <div className="p-3">
+      <div className="p-3" data-bs-theme={darkMode ? 'dark' : 'light'}>
         <div className="card shadow border-0 p-4">
           <form onSubmit={handleSubmit}>
             <div className="row">

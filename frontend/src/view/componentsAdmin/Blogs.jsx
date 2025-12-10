@@ -7,6 +7,7 @@ import TableData from '../TableData';
 import { FaFeatherAlt } from "react-icons/fa";
 import { MdTitle, MdOutlineCategory } from "react-icons/md";
 import { FaCamera } from 'react-icons/fa6';
+import { useTheme } from '../DarkLightMode';
 
 const blogColumns = [
   { key: 'blog_title', label: 'Blog Title' },
@@ -26,6 +27,7 @@ const Blogs = () => {
   });
   const [blogList, setBlogList] = useState([]);
   const [editId, setEditId] = useState(null);
+  const { darkMode } = useTheme();
 
   //FOR IMAGE PREVIEW & UPLOAD
   const fileInputRef = useRef(null);
@@ -125,7 +127,7 @@ const Blogs = () => {
 
   return (
     <>
-      <div className="p-3">
+      <div className="p-3" data-bs-theme={darkMode ? 'dark' : 'light'}>
         <div className="card shadow p-4">
           <form onSubmit={handleSubmit}>
             <div className="row">

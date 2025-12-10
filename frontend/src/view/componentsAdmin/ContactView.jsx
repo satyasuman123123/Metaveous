@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import TableData from "../TableData";
+import { useTheme } from "../DarkLightMode";
 
 const contactColumns = [
   { key: "contact_name", label: "Name" },
@@ -12,6 +13,7 @@ const contactColumns = [
 
 export default function ContactView() {
   const [contactList, setContactList] = useState([]);
+  const { darkMode } = useTheme();
 
   // FETCH CONTACTS
   const fetchContacts = async () => {
@@ -54,7 +56,7 @@ export default function ContactView() {
 
   return (
     <>
-      <div className="p-3">
+      <div className="p-3" data-bs-theme={darkMode ? 'dark' : 'light'}>
         <TableData
           data={contactList}
           columns={contactColumns}

@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useTheme } from "../DarkLightMode";
 
 //ICONS
 import { MdOutlineEmail } from "react-icons/md";
 import { FaLock } from "react-icons/fa";
 
-
 export default function AdminLogin() {
   const [userData, setUserData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
+  const { darkMode } = useTheme();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,7 +39,7 @@ export default function AdminLogin() {
 
   return (
     <>
-      <div className="d-flex justify-content-center align-items-center vh-100 background_image">
+      <div className="d-flex justify-content-center align-items-center vh-100 background_image" data-bs-theme={darkMode ? 'dark' : 'light'}>
         <div className="card card_style p-4">
           <h3 className="text-center mb-4">Admin Sign-In</h3>
 

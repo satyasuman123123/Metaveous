@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useTheme } from "../DarkLightMode";
+import { useTheme } from '../../DarkLightMode';
 
 export default function Gallery() {
   const [galleryList, setGalleryList] = useState([]);

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import TableData from '../TableData';
+import { useTheme } from '../DarkLightMode';
 
 // ICONS
 import { FaMobileAlt, FaLockOpen, FaCamera } from "react-icons/fa";
@@ -24,6 +25,7 @@ export default function CreateAccount() {
   const [editId, setEditId] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const fileInputRef = useRef(null);
+  const { darkMode } = useTheme();
 
   // GET user
   const fetchUsers = async () => {
@@ -153,7 +155,7 @@ export default function CreateAccount() {
   return (
     <>
       {/* FORM */}
-      <div className="p-3">
+      <div className="p-3" data-bs-theme={darkMode ? 'dark' : 'light'}>
         <div className="card shadow border-0 p-4">
           <form onSubmit={handleSubmit}>
             <div className="row">
