@@ -2,7 +2,7 @@
   font-size: 11px;
 }
 
-/*------------ DARK-LIGHT-MODE SECTION STARTS ------------*/
+/* ------------ DARK-LIGHT-MODE SECTION STARTS ------------ */
 .dark-mode {
   background-color: #121212;
   color: #f1f1f1;
@@ -28,7 +28,7 @@
 } */
 
 .dark-mode .nav-link.active {
-  color: #0d6efd !important;
+  color: white !important;
 }
 
 .navbar .nav-link:hover {
@@ -44,9 +44,9 @@
   background-repeat: no-repeat;
   padding: 70px 0;
 }
-/*------------ BREAD-CRUMB CARD SECTION ENDS ------------ */
+/* ------------ BREAD-CRUMB CARD SECTION ENDS ------------ */
 
-/*------------ HEADER SECTION STARTS ------------ */
+/* ------------ HEADER SECTION STARTS ------------ */
 .company-logo {
   width: 13%;
 }
@@ -63,9 +63,9 @@
 }
 
 
-/*------------ HEADER SECTION ENDS ------------ */
+/* ------------ HEADER SECTION ENDS ------------ */
 
-/* ----------- HOME SECTION STARTS ------------*/
+/* ------------ HOME SECTION STARTS ------------ */
 .hero-section {
   padding-top: 140px !important;
   padding-bottom: 150px !important;
@@ -91,9 +91,9 @@
     padding-bottom: 200px !important;
   }
 }
-/*----------- HOME SECTION ENDS ------------*/
+/* ------------ HOME SECTION ENDS ------------ */
 
-/*------------ FOOTER SECTION STARTS ------------ */
+/* ------------ FOOTER SECTION STARTS ------------ */
 .hover-link{
   color: #6c757d;
   transition: all 0.3s ease-in-out;
@@ -112,9 +112,9 @@
   cursor: pointer;
   transform: scale(1.5);
 }
-/*------------ FOOTER SECTION ENDS ------------ */
+/* ------------ FOOTER SECTION ENDS ------------ */
 
-/*------------ ABOUT SECTION STARTS ------------ */
+/* ------------ ABOUT SECTION STARTS ------------ */
 .about-details__content-text1 {
   position: relative;
   display: block;

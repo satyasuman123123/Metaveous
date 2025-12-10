@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useTheme } from '../DarkLightMode';
+import { useTheme } from '../../DarkLightMode';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 

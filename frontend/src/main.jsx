@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.js'
 
 // DARK MODE
-import { DarkLightModeProvider } from './view/componentsWebsite/DarkLightMode.jsx'
+import { DarkLightModeProvider } from './view/DarkLightMode.jsx';
 
 //ADMIN PAGES
 import Sidebar from './view/Sidebar.jsx';

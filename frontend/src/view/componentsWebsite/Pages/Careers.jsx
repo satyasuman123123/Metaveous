@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useTheme } from '../DarkLightMode';
+import { useTheme } from '../../DarkLightMode';
 import axios from 'axios';
 
 // ICONS

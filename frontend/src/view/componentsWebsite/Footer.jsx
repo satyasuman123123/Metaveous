@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useTheme } from "./DarkLightMode";
+import { useTheme } from "../DarkLightMode";
 
 //ICONS
 import { FaFacebookF, FaXTwitter, FaYoutube, FaLinkedinIn } from "react-icons/fa6";

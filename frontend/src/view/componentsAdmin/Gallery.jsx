@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import TableData from '../TableData';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import { useTheme } from '../DarkLightMode';
 
 // ICONS
 import { MdTitle } from "react-icons/md";
@@ -13,14 +14,12 @@ const galleryColumns = [
 ];
 
 export default function Gallery() {
-  const [galleryForm, setGalleryForm] = useState({
-    gallery_title: '',
-    gallery_image: null,
-  });
+  const [galleryForm, setGalleryForm] = useState({ gallery_title: '', gallery_image: null });
   const [galleryList, setGalleryList] = useState([]);
   const [editId, setEditId] = useState(null);
+  const { darkMode } = useTheme();
 
-  //FOR IMAGE PREVIEW & UPLOAD
+  // FOR IMAGE PREVIEW & UPLOAD
   const fileInputRef = useRef(null);
   const [imagePreview, setImagePreview] = useState(null);
   const openCamera = (e) => {
@@ -36,11 +35,11 @@ export default function Gallery() {
     setGalleryForm({ ...galleryForm, gallery_image: file });
     setImagePreview(URL.createObjectURL(file));
   };
-  
+
   const handleChange = (e) =>
     setGalleryForm({ ...galleryForm, [e.target.name]: e.target.value });
 
-  // Fetch Gallery List
+  // FETCH GALLERY LIST
   const fetchGallery = async () => {
     try {
       const res = await axios.get("http://localhost:3000/gallery");
@@ -54,7 +53,7 @@ export default function Gallery() {
     fetchGallery();
   }, []);
 
-  // Create / Update Gallery
+  // CREATE / UPDATE GALLERY
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!galleryForm.gallery_title) {
@@ -84,7 +83,7 @@ export default function Gallery() {
     }
   };
 
-  // DELETE Gallery
+  // DELETE GALLERY
   const deleteGallery = async (id) => {
     if (window.confirm("Are you sure you want to delete this gallery item?")) {
       try {
@@ -97,7 +96,7 @@ export default function Gallery() {
     }
   };
 
-  // EDIT Gallery
+  // EDIT GALLERY
   const editGallery = (id) => {
     const item = galleryList.find(i => i._id === id);
     if (item) {
@@ -109,7 +108,7 @@ export default function Gallery() {
 
   return (
     <>
-      <div className="p-3">
+      <div className="p-3" data-bs-theme={darkMode ? 'dark' : 'light'}>
         <div className="card p-4 shadow">
           <form onSubmit={handleSubmit}>
             <div className="row">
@@ -118,20 +117,20 @@ export default function Gallery() {
                 <label htmlFor="gallery_title" className="form-label"> Gallery Title </label>
                 <div className="input-group">
                   <span className="input-group-text"><MdTitle /></span>
-                  <input name="gallery_title" placeholder="Enter gallery title" className="form-control" id='gallery_title' value={galleryForm.gallery_title} onChange={handleChange} required /> 
+                  <input name="gallery_title" placeholder="Enter gallery title" className="form-control" id='gallery_title' value={galleryForm.gallery_title} onChange={handleChange} required />
                 </div>
               </div>
 
               {/* GALLERY IMAGE */}
               <div className="col-md-6 mb-3">
                 <label htmlFor="gallery_image" className="form-label mb-2">Gallery Image</label>
-                  <button type="button" className="btn border-0 mx-3" onClick={openCamera}> <FaCamera size={40} /> </button>
-                  <input ref={fileInputRef} type="file" accept="image/*" capture="user" className="d-none" onChange={handleImageChange} />
-                  {imagePreview ? (
-                    <img src={imagePreview} alt="Preview" className="image-preview mb-2" />
-                  ) : (
-                    <img src="../../../noImage.jpeg" alt="No preview" className="image-preview mb-2" />
-                  )}
+                <button type="button" className="btn border-0 mx-3" onClick={openCamera}> <FaCamera size={40} /> </button>
+                <input ref={fileInputRef} type="file" accept="image/*" capture="user" className="d-none" onChange={handleImageChange} />
+                {imagePreview ? (
+                  <img src={imagePreview} alt="Preview" className="image-preview mb-2" />
+                ) : (
+                  <img src="../../../noImage.jpeg" alt="No preview" className="image-preview mb-2" />
+                )}
               </div>
             </div>
 
