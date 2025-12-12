@@ -32,6 +32,7 @@ exports.createGallery = async (req, res) => {
 
     const existing = await AdminGallery.findOne({ gallery_title });
     if (existing) {
+      deleteFile(req.file.filename); //[CANNOT ABLE TO UPLOAD FILE IF TITLE WILL BE EXISTING]
       return res.status(400).json({ success: false, msg: "Title already exists" });
     }
 
