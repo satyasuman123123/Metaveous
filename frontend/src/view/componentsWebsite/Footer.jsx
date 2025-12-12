@@ -8,7 +8,7 @@ import { ImPhone } from "react-icons/im";
 import { MdEmail, MdLocationPin } from "react-icons/md";
 
 const Footer = () => {
-  const { darkMode, toggleDarkMode } = useTheme();
+  const { darkMode } = useTheme();
   return (
     <>
       <footer className="py-5 position-relative footer_style shadow-lg" data-bs-theme={darkMode ? 'dark' : 'light'}>
