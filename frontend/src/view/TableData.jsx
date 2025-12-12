@@ -134,7 +134,7 @@ export default function TableData({ data, columns, title = "Data Table", onEdit,
         </div>
 
         {/* Pagination */}
-        <div className="d-block d-lg-flex justify-content-center">
+        <div className="d-block d-flex justify-content-center mt-4">
           <button className="btn btn-outline-primary me-2" onClick={() => setCurrentPage(p => Math.max(p - 1, 1))} disabled={currentPage === 1}>
             <TbArrowBigLeftLineFilled />
           </button>
