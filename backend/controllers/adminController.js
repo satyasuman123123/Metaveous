@@ -103,19 +103,6 @@ exports.createAccount = async (req, res) => {
     const existingByName = await AdminAccount.findOne({ fullname });
     const existingByEmail = await AdminAccount.findOne({ email });
 
-    // if (existingByName && existingByEmail) {
-    //   deleteFile(req.file.filename);
-    //   return res.status(400).json({ msg: "Both name and email are already registered" });
-    // }
-    // if (existingByName) {
-    //   deleteFile(req.file.filename);
-    //   return res.status(400).json({ msg: "Name is already registered" });
-    // }
-    // if (existingByEmail) {
-    //   deleteFile(req.file.filename);
-    //   return res.status(400).json({ msg: "Email is already registered" });
-    // }
-
     if (existingByName || existingByEmail) {
       deleteFile(req.file.filename);
       return res.status(400).json({
@@ -173,7 +160,6 @@ exports.updateAccount = async (req, res) => {
 
     const updateFields = { fullname, email, phoneno, status: status === "true" || status === true };
 
-    // convert password to hashed password if provided
     if (password && password.trim() !== "") {
       const salt = await bcrypt.genSalt(10);
       updateFields.password = await bcrypt.hash(password, salt);
