@@ -6,6 +6,9 @@ import { toast } from 'react-toastify';
 import IntroCard from './IntroCard';
 import axios from 'axios';
 
+// DARK MODE
+import { DarkLightMode } from './DarkLightMode';
+
 // ICONS
 import { RiMenu2Fill, RiAccountPinCircleLine, RiContactsBook3Line } from "react-icons/ri";
 import { ImBlogger } from "react-icons/im";
@@ -67,8 +70,9 @@ const Sidebar = () => {
       <div className="d-block d-lg-flex d-md-flex min-vh-100">
         {/* sidebar for desktop */}
         <div className="d-none d-lg-block bg-dark border-end sidebar py-4 ">
-          <NavLink to="/admin" className="d-flex align-items-center mb-3 px-3 mb-md-0 me-md-auto text-white text-decoration-none">
+          <NavLink to="/admin" className="d-flex justify-content-between align-items-center mb-3 px-3 mb-md-0 text-white text-decoration-none">
             <span className="fs-4">Metaveous</span>
+            <DarkLightMode />
           </NavLink>
           <hr className='text-white' />
           <ul className="nav flex-column mb-auto">
@@ -114,7 +118,8 @@ const Sidebar = () => {
 
           <Offcanvas show={show} onHide={handleClose} className="mobile_offcanvas" data-bs-theme="dark">
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title className=''>Metaveous</Offcanvas.Title>
+              <Offcanvas.Title className='me-5'>Metaveous</Offcanvas.Title>
+              <DarkLightMode />
             </Offcanvas.Header>
             <Offcanvas.Body>
               <ul className="nav flex-column mb-auto">

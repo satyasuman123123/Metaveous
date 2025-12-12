@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+
+// DARK MODE
 import { DarkLightMode, useTheme } from "../DarkLightMode";
 
 // ICONS
@@ -64,8 +66,6 @@ const Header = () => {
           </div>
         </nav>
       </header>
-
-      {/* <Common menu={menuData} /> */}
     </>
   );
 };

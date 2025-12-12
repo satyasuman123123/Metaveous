@@ -5,7 +5,6 @@ const ThemeContext = createContext();
 
 export const DarkLightModeProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(() => {
-    // Load from localStorage on mount
     return localStorage.getItem("theme") === "dark";
   });
 
@@ -23,17 +22,16 @@ export const DarkLightModeProvider = ({ children }) => {
   );
 };
 
-// Hook for using theme anywhere
+// eslint-disable-next-line react-refresh/only-export-components
 export function useTheme() {
   return useContext(ThemeContext);
 }
 
-// This component is your clickable toggle icon
 export const DarkLightMode = () => {
   const { darkMode, toggleDarkMode } = useTheme();
 
   return (
-    <span className="d-flex align-items-center justify-content-center" role="button" onClick={toggleDarkMode} title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}>
+    <span className="d-flex align-items-center justify-content-center me-3" role="button" onClick={toggleDarkMode} title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}>
       {darkMode ? <PiSunDuotone size={25} /> : <PiMoonDuotone size={25} />}
     </span>
   );
