@@ -62,7 +62,7 @@ export default function TableData({ data, columns, title = "Data Table", onEdit,
       <div className="container-fluid mt-4" data-bs-theme={darkMode ? 'dark' : 'light'}>
         <h4>{title}</h4>
 
-        {/* Search */}
+        {/* Search Bar */}
         <div className="mb-3">
           <input className="form-control w-25" type="text" placeholder="Search..." value={searchTerm} onChange={(e) => { setSearchTerm(e.target.value); setCurrentPage(1); }} />
         </div>
@@ -94,10 +94,9 @@ export default function TableData({ data, columns, title = "Data Table", onEdit,
                 paginatedData.map((item, index) => (
                   <tr key={item.id || index}>
 
-                    {/* INDEXING */}
+                    {/* Serial Number */}
                     <td>{(currentPage - 1) * itemsPerPage + index + 1}</td>
 
-                    {/* DYNAMIC COLUMNS */}
                     {columns.map(col => (
                       <td key={col.key} className={`${col.key === 'blog_content' || col.key === 'description' || col.key === 'job_description' ? 'tableRow_style' : ''} ${col.key === 'blog_title' || col.key === 'password' ? 'tableRow2_style' : ''}`}>
 
@@ -126,7 +125,6 @@ export default function TableData({ data, columns, title = "Data Table", onEdit,
                       </td>
                     )}
 
-                    {/* CREATED DATE */}
                     <td>{new Date(item.createdAt).toLocaleDateString("en-GB").replace(/\//g, "-")}</td>
                   </tr>
                 ))

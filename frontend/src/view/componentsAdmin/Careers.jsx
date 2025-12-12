@@ -117,7 +117,7 @@ export default function Careers() {
         <div className="card shadow border-0 p-4">
           <form onSubmit={handleSubmit}>
             <div className="row">
-              {/* Job Role */}
+              {/* JOB ROLE */}
               <div className="col-md-6 mb-2">
                 <label htmlFor="job_role" className="form-label">Job Role</label>
                 <div className="input-group">
@@ -126,43 +126,34 @@ export default function Careers() {
                 </div>
               </div>
 
-              {/* Job Location */}
+              {/* JOB LOCATION */}
               <div className="col-md-6 mb-2">
                 <label htmlFor="job_location" className="form-label">Job Location</label>
                 <div className="input-group">
                   <span className="input-group-text"> <IoLocationOutline size={21} /> </span>
-                  <input
-                    type="text"
-                    id="job_location"
-                    name="job_location"
-                    className="form-control"
-                    value={careerForm.job_location}
-                    onChange={handleChange}
-                    required
-                    placeholder="Enter location"
-                  />
+                  <input type="text" id="job_location" name="job_location" className="form-control" value={careerForm.job_location} onChange={handleChange} required placeholder="Enter location" />
                 </div>
               </div>
 
-              {/* Experience */}
+              {/* JOB EXPERIENCE */}
               <div className="col-md-6 mb-2">
-                <label htmlFor="job_experience" className="form-label">Experience</label>
+                <label htmlFor="job_experience" className="form-label">Job Experience</label>
                 <div className="input-group">
                   <span className="input-group-text"> <IoLocationOutline size={21} /> </span>
                   <input type="text" id="job_experience" name="job_experience" className="form-control" value={careerForm.job_experience} onChange={handleChange} required placeholder="Enter required experience" />
                 </div>
               </div>
 
-              {/* Vacancy */}
+              {/* JOB VACANCY */}
               <div className="col-md-6 mb-2">
-                <label htmlFor="job_vacancy" className="form-label">Vacancy</label>
+                <label htmlFor="job_vacancy" className="form-label">Job Vacancy</label>
                 <div className="input-group">
                   <span className="input-group-text"> <MdOutlinePersonSearch size={21} /> </span>
                   <input type="number" id="job_vacancy" name="job_vacancy" className="form-control" value={careerForm.job_vacancy} onChange={handleChange} required placeholder="Enter number of vacancies" />
                 </div>
               </div>
 
-              {/* Type */}
+              {/* JOB TYPE */}
               <div className="col-md-6 mb-2">
                 <label htmlFor="job_type" className="form-label">Job Type</label>
                 <div className="input-group">
@@ -181,7 +172,7 @@ export default function Careers() {
                 </div>
               </div>
 
-              {/* Description */}
+              {/* JOB DESCRIPTION */}
               <div className="col-md-6 mb-2">
                 <label htmlFor="job_description" className="form-label">Job Description</label>
                 <textarea rows="4" id="job_description" name="job_description" className="form-control" value={careerForm.job_description} onChange={handleChange} required placeholder="Enter job description"></textarea>

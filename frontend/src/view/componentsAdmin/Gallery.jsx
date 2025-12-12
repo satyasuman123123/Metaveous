@@ -44,7 +44,7 @@ export default function Gallery() {
     try {
       const res = await axios.get("http://localhost:3000/gallery");
       setGalleryList(res.data.data || []);
-    } catch (err) {
+    } catch {
       toast.error("Error fetching gallery");
     }
   };
@@ -135,9 +135,7 @@ export default function Gallery() {
             </div>
 
             <div className="text-end">
-              <button className="btn btn-primary py-2 px-4" type="submit">
-                {editId ? "Update" : "Add Gallery"}
-              </button>
+              <button className="btn btn-primary py-2 px-4" type="submit"> {editId ? "Update" : "Add Gallery"} </button>
               {editId && (
                 <button type="button" className="btn btn-secondary ms-2" onClick={() => {
                   setEditId(null);

@@ -62,14 +62,12 @@ export default function AdminLogin() {
               </div>
             </div>
 
-            {/* Remember me + forgot password */}
             <div className="d-flex justify-content-end align-items-center mb-3">
               <NavLink to="#" className="small text-decoration-none">
                 Forgot password?
               </NavLink>
             </div>
 
-            {/* Button */}
             <button type="submit" className="btn btn-primary w-100">
               Sign In
             </button>

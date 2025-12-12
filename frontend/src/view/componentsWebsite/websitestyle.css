@@ -23,10 +23,6 @@
   background-color: rgba(0, 0, 0, 0.35);
 }
 
-/* .dark-mode a:hover {
-  color: #f8f9fa !important;
-} */
-
 .dark-mode .nav-link.active {
   color: white !important;
 }
@@ -58,7 +54,6 @@
 
 .navbar_style.sticky-top {
   backdrop-filter: blur(60px);
-  /* -webkit-backdrop-filter: blur(20px); */
   transition: all 0.3s ease-in-out;
 }
 

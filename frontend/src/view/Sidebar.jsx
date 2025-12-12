@@ -48,7 +48,7 @@ const Sidebar = () => {
           setUserImage(res.data.image);
         }
       })
-      .catch(err => {
+      .catch(() => {
         toast.error("Session expired, please log in again.");
         document.cookie = "token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
         navigate('/adminsignin');
@@ -68,8 +68,7 @@ const Sidebar = () => {
         {/* sidebar for desktop */}
         <div className="d-none d-lg-block bg-dark border-end sidebar py-4 ">
           <NavLink to="/admin" className="d-flex align-items-center mb-3 px-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            {/* <span className="fs-4">Metaveous</span> */}
-            <span className="fs-4">Admin</span>
+            <span className="fs-4">Metaveous</span>
           </NavLink>
           <hr className='text-white' />
           <ul className="nav flex-column mb-auto">
@@ -88,8 +87,6 @@ const Sidebar = () => {
               <strong>{userName}</strong>
             </NavLink>
             <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-              {/* <li><NavLink className="dropdown-item" to="/profile">Profile</NavLink></li>
-              <li><hr className="dropdown-divider" /></li> */}
               <li><button className="dropdown-item" onClick={handleLogout}>Sign out</button></li>
             </ul>
           </div>
@@ -102,16 +99,13 @@ const Sidebar = () => {
               <button className="btn d-lg-none" onClick={handleShow}>
                 <RiMenu2Fill size={20} />
               </button>
-              {/* <NavLink className="navbar-brand mx-auto">Metaveous</NavLink> */}
-              <NavLink className="navbar-brand mx-auto">Admin</NavLink>
+              <NavLink className="navbar-brand mx-auto">Metaveous</NavLink>
               <div className="dropdown">
                 <NavLink to="#" className="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
                   <img src={`http://localhost:3000/uploads/${userImage}`} alt="profile" width="40" height="40" className="rounded-circle me-2" />
                   <strong>{userName}</strong>
                 </NavLink>
                 <ul className="dropdown-menu dropdown-menu-end text-small shadow" aria-labelledby="dropdownUser2">
-                  {/* <li><NavLink className="dropdown-item" to="/profile">Profile</NavLink></li>
-                  <li><hr className="dropdown-divider" /></li> */}
                   <li><button className="dropdown-item" onClick={handleLogout}>Sign out</button></li>
                 </ul>
               </div>
@@ -120,8 +114,7 @@ const Sidebar = () => {
 
           <Offcanvas show={show} onHide={handleClose} className="mobile_offcanvas" data-bs-theme="dark">
             <Offcanvas.Header closeButton>
-              {/* <Offcanvas.Title className=''>Metaveous</Offcanvas.Title> */}
-              <Offcanvas.Title className=''>Admin</Offcanvas.Title>
+              <Offcanvas.Title className=''>Metaveous</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <ul className="nav flex-column mb-auto">

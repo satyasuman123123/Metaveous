@@ -128,6 +128,7 @@ export default function CreateAccount() {
       toast.success("Deleted successfully!");
       fetchUsers();
     } catch (err) {
+      console.error("Delete admin failed:", err);
       toast.error("Failed to delete admin account.");
     }
   };
