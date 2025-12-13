@@ -12,7 +12,7 @@ export default function Gallery() {
     try {
       const res = await axios.get("http://localhost:3000/gallery");
       setGalleryList(res.data.data || []);
-    } catch (err) {
+    } catch {
       toast.error("Error fetching gallery");
     }
   };
@@ -27,7 +27,7 @@ export default function Gallery() {
 
           {galleryList.length === 0 ? (
             <p>No gallery images found.</p>
-          ) : (
+           ) : (
             galleryList.map((item, index) => (
               <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 mb-5" key={index}>
                 <div className="card shadow text-center">

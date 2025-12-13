@@ -12,7 +12,7 @@ export default function Blogs() {
     try {
       const res = await axios.get("http://localhost:3000/blogs");
       setBlogsList(res.data.data || []);
-    } catch (err) {
+    } catch {
       toast.error("Error fetching blogs");
     }
   };
