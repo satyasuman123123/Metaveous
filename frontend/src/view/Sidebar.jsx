@@ -70,10 +70,12 @@ const Sidebar = () => {
       <div className="d-block d-lg-flex d-md-flex min-vh-100">
         {/* sidebar for desktop */}
         <div className="d-none d-lg-block bg-dark border-end sidebar py-4 ">
-          <NavLink to="/admin" className="d-flex justify-content-between align-items-center mb-3 px-3 mb-md-0 text-white text-decoration-none">
-            <span className="fs-4">Metaveous</span>
+          <div className="d-flex justify-content-between text-white">
+            <NavLink to="/admin" className="mb-3 px-3 mb-md-0 text-white text-decoration-none">
+              <span className="fs-4">Metaveous</span>
+            </NavLink>
             <DarkLightMode />
-          </NavLink>
+          </div>
           <hr className='text-white' />
           <ul className="nav flex-column mb-auto">
             {navItems.map((item, index) => (
