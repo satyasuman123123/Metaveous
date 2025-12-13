@@ -202,7 +202,7 @@ export default function CreateAccount() {
               {/* PROFILE IMAGE */}
               <div className="col-md-6 mb-3">
                 <label htmlFor="profile" className="form-label">Profile Image</label>
-                <button type="button" className="btn border-0 mx-2" onClick={openCamera}><FaCamera size={40} /></button>
+                <button type="button" className="btn border-0 mx-2" onClick={openCamera}><FaCamera size={35} /></button>
                 <input ref={fileInputRef} type="file" accept="image/*" capture="user" className="d-none" onChange={handleImageChange} />
                 <img src={imagePreview || "../../../noImage.jpeg"} alt="Preview" className="image-preview mb-2" />
               </div>
