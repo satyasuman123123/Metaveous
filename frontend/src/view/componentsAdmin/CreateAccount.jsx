@@ -13,7 +13,7 @@ const userColumns = [
   { key: 'phoneno', label: 'Mobile' },
   { key: 'email', label: 'Email Address' },
   // { key: 'password', label: 'Password' }, //bcyrpt showing in table
-  { key: 'v_password', label: 'View Password' },
+  { key: 'v_password', label: 'Password' },
   { key: 'profile', label: 'Profile', isImage: true },
   { key: 'status', label: 'Status' },
 ];

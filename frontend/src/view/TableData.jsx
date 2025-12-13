@@ -8,10 +8,10 @@ import { useTheme } from './DarkLightMode';
 export default function TableData({ data, columns, title = "Data Table", onEdit, onDelete, baseImagePath = "" }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortConfig, setSortConfig] = useState({ key: null, direction: null });
+  const [sortConfig, setSortConfig] = useState({ key: "createdAt", direction: "desc" });
   const { darkMode } = useTheme();
 
-  const itemsPerPage = 5;
+  const itemsPerPage = 10;
 
   // Filter the data
   const filteredData = useMemo(() => {
@@ -22,10 +22,16 @@ export default function TableData({ data, columns, title = "Data Table", onEdit,
       )
     );
 
+
     if (sortConfig.key) {
       filtered.sort((a, b) => {
-        const aVal = a[sortConfig.key];
-        const bVal = b[sortConfig.key];
+        let aVal = a[sortConfig.key];
+        let bVal = b[sortConfig.key];
+        if (sortConfig.key === "createdAt") {
+          aVal = new Date(aVal);
+          bVal = new Date(bVal);
+          return sortConfig.direction === "asc" ? aVal - bVal : bVal - aVal;
+        }
 
         if (typeof aVal === 'string') {
           return sortConfig.direction === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
@@ -34,6 +40,7 @@ export default function TableData({ data, columns, title = "Data Table", onEdit,
         return sortConfig.direction === 'asc' ? aVal - bVal : bVal - aVal;
       });
     }
+
 
     return filtered;
   }, [data, columns, searchTerm, sortConfig]);
@@ -70,7 +77,7 @@ export default function TableData({ data, columns, title = "Data Table", onEdit,
         {/* Table */}
         <div className="table-responsive">
           <table className="product-table" data-bs-theme={darkMode ? 'dark' : 'light'}>
-            <thead>
+            <thead className='text-center'>
               <tr>
                 <th>#</th>
 
@@ -85,10 +92,10 @@ export default function TableData({ data, columns, title = "Data Table", onEdit,
               </tr>
             </thead>
 
-            <tbody>
+            <tbody className='text-center'>
               {paginatedData.length === 0 ? (
                 <tr>
-                  <td colSpan={columns.length + 3} className="text-center">No data found</td>
+                  <td colSpan={columns.length + 3}>No data found</td>
                 </tr>
               ) : (
                 paginatedData.map((item, index) => (
