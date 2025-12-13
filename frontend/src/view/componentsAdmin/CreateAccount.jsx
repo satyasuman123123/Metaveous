@@ -12,12 +12,13 @@ const userColumns = [
   { key: 'fullname', label: 'Name' },
   { key: 'phoneno', label: 'Mobile' },
   { key: 'email', label: 'Email Address' },
-  { key: 'password', label: 'Password' },
+  // { key: 'password', label: 'Password' }, //bcyrpt showing in table
+  { key: 'v_password', label: 'View Password' },
   { key: 'profile', label: 'Profile', isImage: true },
   { key: 'status', label: 'Status' },
 ];
 
-const initialFormState = { fullname: "", email: "", password: "", phoneno: "", profile: null, status: false };
+const initialFormState = { fullname: "", email: "", password: "", v_password: "", phoneno: "", profile: null, status: false };
 
 export default function CreateAccount() {
   const [formData, setFormData] = useState(initialFormState);
@@ -86,11 +87,10 @@ export default function CreateAccount() {
     adminForm.append("fullname", formData.fullname);
     adminForm.append("email", formData.email);
     adminForm.append("password", formData.password);
+    adminForm.append("v_password", formData.password);
     adminForm.append("phoneno", formData.phoneno);
     adminForm.append("status", formData.status);
-    // if (formData.profile instanceof File) {
-      adminForm.append("profile", formData.profile);
-    // } 
+    adminForm.append("profile", formData.profile);
 
     try {
       if (editId) {
@@ -140,8 +140,7 @@ export default function CreateAccount() {
       setFormData({
         fullname: accountToEdit.fullname,
         email: accountToEdit.email,
-        // password: accountToEdit.password,
-        password: "",
+        password: accountToEdit.v_password,
         phoneno: accountToEdit.phoneno,
         profile: null,
         status: accountToEdit.status === true || accountToEdit.status === "true" || accountToEdit.status === "Active",

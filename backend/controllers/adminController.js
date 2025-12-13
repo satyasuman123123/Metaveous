@@ -72,7 +72,7 @@ exports.signIn = async (req, res) => {
         console.error("Token generation error:", err);
         return res.status(500).json({ success: false, msg: "Error generating token" });
       }
-      res.json({success: true, msg: "SignIn successful", name: user.fullname, token, image: user.profile });
+      res.json({ success: true, msg: "SignIn successful", name: user.fullname, token, image: user.profile });
     });
   } catch (err) {
     console.error("SignIn error:", err);
@@ -84,6 +84,7 @@ exports.signIn = async (req, res) => {
 exports.getAllAccounts = async (req, res) => {
   try {
     const accounts = await AdminAccount.find();
+
     res.status(200).json({ success: true, data: accounts });
   } catch (err) {
     console.error("Error fetching accounts:", err);
@@ -107,23 +108,23 @@ exports.createAccount = async (req, res) => {
       deleteFile(req.file.filename);
       return res.status(400).json({
         msg: existingByName && existingByEmail ? "Both name and email are already registered"
-            : existingByName ? "Name is already registered"
+          : existingByName ? "Name is already registered"
             : "Email is already registered",
       });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newAdmin = new AdminAccount({ fullname, email, password: hashedPassword, phoneno, profile: req.file.filename, status: status === "true" });
+    const newAdmin = new AdminAccount({ fullname, email, password: hashedPassword, v_password: password, phoneno, profile: req.file.filename, status: status === "true" });
 
     await newAdmin.save();
 
-    jwt.sign({ id: newAdmin._id, email }, "Google", { expiresIn: "8h" }, (err, token) => {
-        if (err) {
-          console.error("JWT error:", err);
-          return res.status(500).json({ success: false, msg: "Error generating token" });
-        }
-        res.json({ success: true, msg: "Account Created Successfully", token, createdAt: newAdmin.createdAt });
+    jwt.sign({ id: newAdmin._id, email }, "Google", { expiresIn: "7d" }, (err, token) => {
+      if (err) {
+        console.error("JWT error:", err);
+        return res.status(500).json({ success: false, msg: "Error generating token" });
       }
+      res.json({ success: true, msg: "Account Created Successfully", token, createdAt: newAdmin.createdAt });
+    }
     );
   } catch (err) {
     console.error("Signup error:", err);
@@ -135,7 +136,7 @@ exports.createAccount = async (req, res) => {
 exports.deleteAccount = async (req, res) => {
   try {
     const account = await AdminAccount.findById(req.params.id);
-    if (!account) { 
+    if (!account) {
       return res.status(404).json({ message: "Account not found" });
     }
     else if (account.profile) {
@@ -160,12 +161,18 @@ exports.updateAccount = async (req, res) => {
 
     const updateFields = { fullname, email, phoneno, status: status === "true" || status === true };
 
+    // if (password && password.trim() !== "") {
+    //   const salt = await bcrypt.genSalt(10);
+    //   updateFields.password = await bcrypt.hash(password, salt);
+    // } else {
+    //   updateFields.password = existingAccount.password;
+    // }
+
     if (password && password.trim() !== "") {
-      const salt = await bcrypt.genSalt(10);
-      updateFields.password = await bcrypt.hash(password, salt);
-    } else {
-      updateFields.password = existingAccount.password;
+      updateFields.password = await bcrypt.hash(password, 10);
+      updateFields.v_password = password;
     }
+
 
     if (req.file) {
       if (existingAccount.profile) deleteFile(existingAccount.profile);
