@@ -29,7 +29,6 @@ exports.createContact = async (req, res) => {
 exports.updateContact = async (req, res) => {
   try {
     const { contact_name, contact_phone, contact_email, contact_message, status } = req.body;
-    console.log("BODY RECEIVED:", req.body);
     const update = { contact_name, contact_phone, contact_email, contact_message, status  };
     const updated = await AdminContact.findByIdAndUpdate(
       req.params.id, update, { new: true }
